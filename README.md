@@ -1,2 +1,5 @@
-# Laboratorio_SO1_2S22
-Repositorio con los ejemplos dados en el laboratorio so1 2s22
+# Laboratorio Sistemas Operativos 1
+Repositorio de los ejemplos desarollados durante el Labatorio del curso Sistemas Operativos 1, Facultad de Ingenieria, USAC.
+
+# Autor
+German José Paz Cordón
