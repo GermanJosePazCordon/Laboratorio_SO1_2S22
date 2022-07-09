@@ -7,6 +7,8 @@
 * [Ubuntu 22.04](https://ubuntu.com/download/desktop)
 
 * [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)
+
+* [Tutorial](https://youtu.be/WNOUPSxn2lM)
 -----------
 
 ## Instalación Dual Bot
