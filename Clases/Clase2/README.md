@@ -1,5 +1,7 @@
 # Clase 2
 ----------
+(Grabacion)[https://drive.google.com/file/d/1EEAXVLZZxtj55JzB0ngBb18NEUcPdMCQ/view?usp=sharing]
+
 
 ```
 sudo apt-get update
