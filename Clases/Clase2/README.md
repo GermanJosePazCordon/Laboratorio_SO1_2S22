@@ -26,7 +26,7 @@ docker --version
 ## Ejecutar una imagen
 
 ```
-sudo docker run -p <<puerto a exponer>>:<<puerto del contenedor>> <<nombre imagen>>
+sudo docker run -d -p <<puerto a exponer>>:<<puerto del contenedor>> <<nombre imagen>>
 ```
 
 ## Ejecutar una imagen visualizando mensajes en consola
