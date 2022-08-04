@@ -1,5 +1,9 @@
 # Clase 2
+
+
+## [Grabacion](https://drive.google.com/file/d/1EEAXVLZZxtj55JzB0ngBb18NEUcPdMCQ/view?usp=sharing)
 ----------
+
 
 ```
 sudo apt-get update
@@ -22,7 +26,7 @@ docker --version
 ## Ejecutar una imagen
 
 ```
-sudo docker run -p <<puerto a exponer>>:<<puerto del contenedor>> <<nombre imagen>>
+sudo docker run -d -p <<puerto a exponer>>:<<puerto del contenedor>> <<nombre imagen>>
 ```
 
 ## Ejecutar una imagen visualizando mensajes en consola
