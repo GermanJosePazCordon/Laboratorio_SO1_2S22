@@ -7,7 +7,6 @@
 
 ```
 sudo docker pull mongo
-
 ```
 
 ## Docker run
@@ -23,7 +22,6 @@ Mongo utiliza el puerto 27017 por defecto. Para persistencia de datos especifica
 sudo docker exec -it  <<nombre o id del container>> bash
 
 mongo
-
 ```
 Luego de conectarse al contenedor con mongo, escribir "mongo", de esta manera ya se puede utilizar sintaxis de mongo para crear bases, colecciones y demás cosas. [Ejemplos basicos](https://www.mongodb.com/basics/examples)
 
