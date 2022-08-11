@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  database:
+    container_name: database
+    restart: always
+    image: mongo
+    ports:
+      - "8000:27017"
+    volumes:
+      - ./data:/data/db
+
+  backend:
+    container_name: backend
+    restart: always
+    build: ./server
+    image: germanjosepazcordon/backend_carnet
+    ports:
+      - "6000:3000"
+    depends_on:
+      - database
+    links:
+      - database
+
+  services:
+    nombre_servicio:
+      container_name: nombre_contendor

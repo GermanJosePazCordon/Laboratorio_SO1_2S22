@@ -1,0 +1,23 @@
+version: "3" # Se indica el numero de version
+
+services:
+  miServicio1: # Se pone el nombre del servicio, puede ser cualquiera
+    container_name: miContenedor1 # Nombre que va tener el contenedor al momento de levantar, puede ser cualquiera
+    restart: always # Se utiliza para que el contenedor se vuelva a levantar en caso se cayera
+    image: miImagen # Se indica el nombre de la imagen. Si no hay un build en el servicio, se hara pull desde docker hub con el nombre indicado
+    ports:
+      - "8000:27017" # Se especifican los puertos. El primero es el que se expone para utilizarlo y el segundo es el que utiliza el contendor internamente
+    volumes:
+      - ./data:/data/db # Se utiliza para persistencia de datos, la ruta de la izquierda es de su computadora, la otra es la ruta interna del contenedor
+
+  backend:
+    container_name: backend
+    restart: always
+    build: ./server # Se utiliza para construir una imagen, la ruta que se especifica es la ubicacion del Dockerfile para la imagen.
+    image: germanjosepazcordon/backend_carnet # Como se tiene un build la imagen se creará con este nombre
+    ports:
+      - "6000:3000"
+    depends_on: # Se utiliza cuando un servicio depende de otro para su funcionamiento, el servicio del cual se depende debe declararse antes
+      - miServicio1 # Nombre del servicio.
+    links: # Se utiliza para unir los contenedores
+      - miServicio1 # Nombre del servicio
