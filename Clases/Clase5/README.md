@@ -1,7 +1,7 @@
 # [Grabacion](https://drive.google.com/file/d/1g5txmsLsFLPVjde-6xthGp-LZ73TZ1fZ/view?usp=sharing)
 
 -----------
-# [Instalar Go](https://www.digitalocean.com/community/tutorials/how-to-install-go-on-ubuntu-20-04)
+## [Instalar Go](https://www.digitalocean.com/community/tutorials/how-to-install-go-on-ubuntu-20-04)
 
 ## Go
 ```
