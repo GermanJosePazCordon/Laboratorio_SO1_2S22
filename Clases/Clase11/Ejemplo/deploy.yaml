@@ -24,8 +24,8 @@ spec:
         app: deploy-clase11
     spec:
       containers:
-        - image: germanjosepazcordon/ejemplo-kube
-          name: ejemplo-kube
+        - image: germanjosepazcordon/clase11-kube
+          name: clase11-kube
           imagePullPolicy: Always
           ports:
             - containerPort: 80
