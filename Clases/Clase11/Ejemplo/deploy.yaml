@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: clase11
+spec: {}
+status: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: deploy-clase11
+  name: deploy-clase11
+  namespace: clase11
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-clase11
+  template:
+    metadata:
+      labels:
+        app: deploy-clase11
+    spec:
+      containers:
+        - image: germanjosepazcordon/ejemplo-kube
+          name: ejemplo-kube
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: svc-clase11
+  name: svc-clase11
+  namespace: clase11
+spec:
+  type: LoadBalancer
+  ports:
+    - name: svc-clase11
+      port: 80
+      protocol: TCP
+  selector:
+    app: deploy-clase11
