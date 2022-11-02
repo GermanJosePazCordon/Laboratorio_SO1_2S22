@@ -1,0 +1,217 @@
+<head>
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.css">
+    <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
+</head>
+<div class="container-fluid">  
+    <!-- Toolbar --> 
+    <div class="row">
+      <div class="col-md-12">
+        
+        <nav id="toolbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div  class="container-fluid">
+              <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <button type="button" class="btn btn-secondary" (click)="showCreate()">Create</button>
+                  </li>
+                  <li class="nav-item">
+                    <button type="button" class="btn btn-secondary" (click)="read()">Read</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn btn-light" (click)="filter(placaFill, marcaFil, modeloFil, serieFil, colorFil, txt)">Filter</button>
+                  </li>
+                  <li>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="margin-left:  40px;">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" checked="" #placaFill>
+                        <label class="btn btn-outline-info" for="btnradio5">Placa</label>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="" #marcaFil>
+                        <label class="btn btn-outline-success" for="btnradio1">Marca</label>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="" #modeloFil>
+                        <label class="btn btn-outline-warning" for="btnradio2">Modelo</label>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked="" #serieFil>
+                        <label class="btn btn-outline-danger" for="btnradio3">Serie</label>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked="" #colorFil>
+                        <label class="btn btn-outline-light" for="btnradio4">Color</label>
+                      </div>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-sm-2" type="text" placeholder="Search" #txt>
+                </form>
+              </div>
+            </div>
+          </nav>
+      </div>
+    </div>
+
+    <!-- Table --> 
+    <div class="row">
+        <div class="col-md-12">
+        <div *ngIf="visibleTable">
+          <!-- Table-->
+          <table class="table table-hover">
+            <tbody>
+              <tr class="table-dark">
+                <th scope="row">Placa</th>
+                <td>Marca</td>
+                <td>Modelo</td>
+                <td>Serie</td>
+                <td>Color</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr *ngFor="let row of rows; let rowIndex = index" class="table-primary">
+                <th scope="row">{{row['placa']}}</th>
+                <td>{{row['marca']}}</td>
+                <td>{{row['modelo']}}</td>
+                <td>{{row['serie']}}</td>
+                <td>{{row['color']}}</td>
+                <td>
+                    <button type="button" class="btn btn-info" (click)="showUpdate(rowIndex)">Update</button>
+                    
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="delete(rowIndex)">Delete</button>
+                    
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+    </div>
+
+    <!-- Create --> 
+    <div class="row">
+        <div class="col-md-12">
+            <div *ngIf="visibleCreate">
+
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group me-2" role="group" aria-label="First group">
+                        <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <form autocomplete="off" style="font-size: x-large;">
+                                        <label for="lblastname" class="form-label mt-4" style="margin-bottom: 10px;">Placa</label>
+                                        <input type="text" class="form-control" id="user_latname" placeholder="Ingrese la placa" size="22" style="height: 8%;" #placaCre>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <form autocomplete="off" style="font-size: x-large;">
+                                        <label for="lblastname" class="form-label mt-4" style="margin-bottom: 10px;">Marca</label>
+                                        <input type="text" class="form-control" id="user_latname" placeholder="Ingrese la marca" size="22" style="height: 8%;" #marcaCre>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <form autocomplete="off" style="font-size: x-large;">
+                                        <label for="lblastname" class="form-label mt-4" style="margin-bottom: 10px;">Modelo</label>
+                                        <input type="text" class="form-control" id="user_latname" placeholder="Ingrese el modelo" size="22" style="height: 8%;" #modeloCre>
+                                    </form>
+                                    <button type="button" class="btn btn-outline-light" style="margin-left: 23%; margin-top: 30%;" (click)="create(placaCre, marcaCre, modeloCre, serieCre, colorCre)">Add Car</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <form autocomplete="off" style="font-size: x-large;">
+                                        <label for="lblastname" class="form-label mt-4" style="margin-bottom: 10px;">Serie</label>
+                                        <input type="text" class="form-control" id="user_latname" placeholder="Ingrese la serie" size="22" style="height: 8%;" #serieCre>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <form autocomplete="off" style="font-size: x-large;">
+                                        <label for="lblastname" class="form-label mt-4" style="margin-bottom: 10px;">Color</label>
+                                        <input type="text" class="form-control" id="user_latname" placeholder="Ingrese el color" size="22" style="height: 8%;" #colorCre>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update --> 
+    <div class="row">
+        <div class="col-md-12">
+            <div *ngIf="visibleUpdate">
+
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group me-2" role="group" aria-label="First group">
+
+                        <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <form autocomplete="off" style="font-size: x-large;">
+                                        <label for="lblastname" class="form-label mt-4" style="margin-bottom: 10px;">Marca</label>
+                                        <input type="text" class="form-control" id="user_latname" placeholder="Ingrese la marca" size="22" style="height: 8%;" #marcaUp>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <form autocomplete="off" style="font-size: x-large;">
+                                        <label for="lblastname" class="form-label mt-4" style="margin-bottom: 10px;">Modelo</label>
+                                        <input type="text" class="form-control" id="user_latname" placeholder="Ingrese el modelo" size="22" style="height: 8%;" #modeloUp>
+                                    </form>
+                                    <button type="button" class="btn btn-outline-light" style="margin-left: 23%; margin-top: 30%;" (click)="update(marcaUp, modeloUp, serieUp, colorUp)">Mod Car</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <form autocomplete="off" style="font-size: x-large;">
+                                        <label for="lblastname" class="form-label mt-4" style="margin-bottom: 10px;">Serie</label>
+                                        <input type="text" class="form-control" id="user_latname" placeholder="Ingrese la serie" size="22" style="height: 8%;" #serieUp>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <form autocomplete="off" style="font-size: x-large;">
+                                        <label for="lblastname" class="form-label mt-4" style="margin-bottom: 10px;">Color</label>
+                                        <input type="text" class="form-control" id="user_latname" placeholder="Ingrese el color" size="22" style="height: 8%;" #colorUp>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+  <router-outlet></router-outlet>
