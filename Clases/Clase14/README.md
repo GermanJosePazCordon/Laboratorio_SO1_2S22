@@ -1,6 +1,6 @@
 # [Grabacion]()
 
-## https://kafka.apache.org/quickstart
+## https://linkerd.io/2.11/getting-started/
 
 -------------
 
